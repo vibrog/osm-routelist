@@ -27,6 +27,6 @@ but we\'re not interested in road networks:
 Apply the XSLT style sheet:
 
     xsltproc --stringparam updated "`date -r routes.osm "+%Y-%m-%d"`" \
-     routeList.xsl routes.osm > index.html
+     routeList.xsl routes.osm > public_html/index.html
 
 The result can be seen at <http://www.vidargundersen.com/routes/>
