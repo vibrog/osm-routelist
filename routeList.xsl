@@ -71,7 +71,15 @@
         </xsl:apply-templates>
       </ul>
       <xsl:if test="$updated">
-        <p class="change">Oppdatert <xsl:value-of select="$updated"/></p>
+        <p class="change">
+          <xsl:text>Oppdatert </xsl:text>
+          <xsl:value-of select="$updated"/>
+          <xsl:text> fra </xsl:text>
+          <a href="http://download.geofabrik.de/osm/europe/">norway.osm</a>
+          <xsl:text> med </xsl:text>
+          <a href="https://github.com/vibrog/osm-routelist"
+             >kode publisert på GitHub</a>
+        </p>
       </xsl:if>
     </body>
   </html>

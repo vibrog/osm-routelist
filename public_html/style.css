@@ -40,6 +40,6 @@ li.tram, li.light_rail { background-image: url(tram.png); }
 li.ferry { background-image: url(ferry.png); }
 a { color:inherit; text-decoration:none; }
 .fixme { color:red; background-color:yellow; }
-.change, .view { color:lightgray; }
+.change, .view { color:lightgray; font-size:10pt; }
 .view { display:none; color:gray; }
 li:hover .view { display:inline; }
