@@ -10,55 +10,7 @@
     <head>
       <title>Ruter i Norge</title>
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
-      <style type="text/css">
-        <xsl:text disable-output-escaping="yes"><![CDATA[
-body {
-  font-family:"Droid Sans","Trebuchet MS",Helvetica,Arial,sans-serif;
-  font-size:11pt;
-  max-width:50em;
-  margin:.8em auto;
-  padding:1em;
-}
-input {
-  width:100%;
-  height:2em;
-  font-size:14pt;
-  border:1px solid gray;
-  -moz-border-radius:4px;
-  border-radius:4px;
-  -webkit-border-radius:4px;
-  margin-top:1em;
-}
-ul {
-  list-style-type: none;
-  padding: 0px;
-  margin: 0px;
-}
-li {
-  background-repeat: no-repeat;
-  background-position: 0px 5px;
-  padding-left: 18px;
-  line-height:1.4em;
-}
-li.bicycle { background-image: url(bicycle.png); }
-li.mtb { background-image: url(mtb.png); }
-li.hiking { background-image: url(hiking.png); }
-li.foot { background-image: url(foot.png); }
-li.running { background-image: url(running.png); }
-li.ski { background-image: url(ski.png); }
-li.wheelchair { background-image: url(wheelchair.png); }
-li.bus { background-image: url(bus.png); }
-li.train, li.railway { background-image: url(train.png); }
-li.subway { background-image: url(subway.png); }
-li.tram, li.light_rail { background-image: url(tram.png); }
-li.ferry { background-image: url(ferry.png); }
-a { color:inherit; text-decoration:none; }
-.fixme { color:red; background-color:yellow; }
-.change, .view { color:lightgray; }
-.view { display:none; color:gray; }
-li:hover .view { display:inline; }
-]]></xsl:text>
-      </style>
+      <link rel="stylesheet" type="text/css" href="style.css"/>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
         <xsl:text> </xsl:text>
       </script>
@@ -107,8 +59,8 @@ li:hover .view { display:inline; }
     </head>
     <body>
       <h1 id="header">
-        <a href="http://wiki.openstreetmap.org/wiki/Route"
-           >Ruter</a> i Norge
+        <a href="http://wiki.openstreetmap.org/wiki/Route">Ruter</a>
+        <xsl:text>i Norge</xsl:text>
       </h1>
       <ul id="list">
         <xsl:apply-templates select="relation">
