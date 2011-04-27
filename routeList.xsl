@@ -60,14 +60,14 @@
     <body>
       <h1 id="header">
         <a href="http://wiki.openstreetmap.org/wiki/Route">Ruter</a>
-        <xsl:text>i Norge</xsl:text>
+        <xsl:text> i Norge</xsl:text>
       </h1>
       <ul id="list">
         <xsl:apply-templates select="relation">
           <xsl:sort select="tag[@k='route']/@v"/>
           <xsl:sort select="tag[@k='network']/@v"/>
-          <xsl:sort select="tag[@k='name']/@v"/>
           <xsl:sort select="tag[@k='ref']/@v" data-type="number"/>
+          <xsl:sort select="tag[@k='name']/@v"/>
         </xsl:apply-templates>
       </ul>
       <xsl:if test="$updated">
@@ -82,6 +82,16 @@
     <a href="http://www.openstreetmap.org/browse/relation/{@id}">
       <xsl:choose>
         <xsl:when test="tag[@k='name']">
+          <xsl:if test="tag[@k='ref'] and (
+                          tag[@k='route']/@v='bus' or
+                          tag[@k='route']/@v='tram' or
+                          tag[@k='route']/@v='subway' or
+                          tag[@k='route']/@v='train'
+                        )">
+            <xsl:text>[</xsl:text>
+            <xsl:value-of select="tag[@k='ref']/@v"/>
+            <xsl:text>] </xsl:text>
+          </xsl:if>
           <xsl:value-of select="tag[@k='name']/@v"/>
         </xsl:when>
         <xsl:when test="tag[@k='ref']">
