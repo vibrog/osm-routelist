@@ -1,9 +1,8 @@
 <?xml version="1.0"?>
-<xsl:stylesheet version="1.0"
-                xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
 <xsl:output method="html" encoding="utf-8"/>
-<xsl:param name="updated"/>
 <xsl:strip-space elements="*"/>
+<xsl:param name="updated">daglig</xsl:param>
 
 <xsl:template match="osm">
   <html>
@@ -124,7 +123,7 @@
           <span class="fixme">
             <a href="http://taginfo.openstreetmap.de/keys/route"
                title="Se vanlige verdier i Taginfo"
-               >ingen route-verdi</a>
+               >mangler route-verdi</a>
           </span>
         </xsl:otherwise>
       </xsl:choose>

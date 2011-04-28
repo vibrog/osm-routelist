@@ -1,7 +1,9 @@
 
-# List relation routes from OSM data
+# List routes from OpenStreetMap
 
-Script and XSLT style sheet used to produce a list of routes in Norway.
+Script and XSLT style sheet used to produce a list of
+[relation routes](http://wiki.openstreetmap.org/wiki/Route)
+found on OpenStreetMap (OSM) in Norway.
 
 ### Instructions
 
@@ -12,7 +14,7 @@ Download OSM data, e.g. nightly extract from
      -z norway.osm.pbf -o norway.osm.pbf \
      http://download.geofabrik.de/osm/europe/norway.osm.pbf
 
-Filter relation routes using
+Filter routes using
 [Osmosis](http://wiki.openstreetmap.org/wiki/Osmosis),
 but we\'re not interested in road networks:
 
