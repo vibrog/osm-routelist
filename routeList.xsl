@@ -59,7 +59,8 @@
     <body>
       <h1 id="header">
         <a href="http://wiki.openstreetmap.org/wiki/Route">Ruter</a>
-        <xsl:text> i Norge</xsl:text>
+        <xsl:text> i </xsl:text>
+        <a href="http://www.openstreetmap.no/">Norge</a>
       </h1>
       <ul id="list">
         <xsl:apply-templates select="relation">
@@ -91,6 +92,7 @@
         <xsl:when test="tag[@k='name']">
           <xsl:if test="tag[@k='ref'] and (
                           tag[@k='route']/@v='bus' or
+                          tag[@k='route']/@v='ferry' or
                           tag[@k='route']/@v='tram' or
                           tag[@k='route']/@v='subway' or
                           tag[@k='route']/@v='train'
