@@ -22,6 +22,8 @@ but we\'re not interested in road networks:
      --tf accept-relations type=route \
      --tf reject-relations route=road \
      --tf reject-relations route=junction \
+     --tf reject-relations route=detour \
+     --tf reject-relations route=power \
      --tf reject-ways \
      --tf reject-nodes \
      --wx routes.osm
