@@ -87,7 +87,8 @@
 
 <xsl:template match="relation">
   <li class="{tag[@k='route']/@v}">
-    <a href="http://www.openstreetmap.org/browse/relation/{@id}">
+    <a href="http://www.openstreetmap.org/browse/relation/{@id}"
+       title="id:{@id}">
       <xsl:choose>
         <xsl:when test="tag[@k='name']">
           <xsl:if test="tag[@k='ref'] and (
@@ -107,45 +108,53 @@
           <xsl:text>#</xsl:text>
           <xsl:value-of select="tag[@k='ref']/@v"/>
         </xsl:when>
+        <xsl:when test="tag[@k='note']">
+          <xsl:text>nb:</xsl:text>
+          <xsl:value-of select="tag[@k='note']/@v"/>
+        </xsl:when>
         <xsl:otherwise>
           <xsl:text>id:</xsl:text>
           <xsl:value-of select="@id"/>
         </xsl:otherwise>
       </xsl:choose>
     </a>
-    <xsl:text>: </xsl:text>
-    <span class="route">
-      <xsl:choose>
-        <xsl:when test="tag[@k='route']">
-          <a href="http://taginfo.openstreetmap.de/tags/route={tag[@k='route']/@v}">
-            <xsl:value-of select="tag[@k='route']/@v"/>
-          </a>
-        </xsl:when>
-        <xsl:otherwise>
-          <span class="fixme">
-            <a href="http://taginfo.openstreetmap.de/keys/route"
-               title="Se vanlige verdier i Taginfo"
-               >mangler route-verdi</a>
-          </span>
-        </xsl:otherwise>
-      </xsl:choose>
+
+    <xsl:if test="tag[@k='route']">
+      <xsl:text>: </xsl:text>
+      <a href="http://taginfo.openstreetmap.de/tags/route={tag[@k='route']/@v}">
+        <xsl:value-of select="tag[@k='route']/@v"/>
+      </a>
       <xsl:if test="tag[@k='network']">
         <xsl:text> /</xsl:text>
         <a href="http://taginfo.openstreetmap.de/tags/network={tag[@k='network']/@v}">
           <xsl:value-of select="tag[@k='network']/@v"/>
         </a>
       </xsl:if>
-    </span>
+    </xsl:if>
+
+    <xsl:if test="not(tag[@k='route']) or tag[@k='fixme']">
+      <xsl:variable name="tooltip">
+        <xsl:choose>
+          <xsl:when test="tag[@k='fixme']">
+            <xsl:value-of select="tag[@k='fixme']/@v"/>
+          </xsl:when>
+          <xsl:when test="not(tag[@k='route'])">
+            <xsl:text>Mangler route-verdi</xsl:text>
+          </xsl:when>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:text> </xsl:text>
+      <img src="warning.png" alt="warning" title="{$tooltip}"/>
+    </xsl:if>
+
     <span class="change">
       <xsl:text>, </xsl:text>
-      <a href="http://www.openstreetmap.org/browse/changeset/{@changeset}">
+      <a href="http://www.openstreetmap.org/browse/changeset/{@changeset}"
+         title="{@changeset} {@user}">
         <xsl:value-of select="substring-before(@timestamp,'T')"/>
       </a>
-      <xsl:text> av </xsl:text>
-      <a href="http://www.openstreetmap.org/user/{@user}">
-        <xsl:value-of select="@user"/>
-      </a>
     </span>
+
     <span class="view">
       <xsl:text> — </xsl:text>
       <a href="http://www.openstreetmap.org/?relation={@id}">
@@ -153,13 +162,14 @@
       </a>
       <xsl:text>, </xsl:text>
       <a href="http://127.0.0.1:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
-        <xsl:text>josm</xsl:text>
+        <xsl:text>rediger</xsl:text>
       </a>
       <xsl:text>, </xsl:text>
       <a href="http://ra.osmsurround.org/downloadServlet/gpx/{@id}">
         <xsl:text>gpx</xsl:text>
       </a>
     </span>
+
   </li>
 </xsl:template>
 

@@ -1,7 +1,7 @@
 body {
   font-family:"Droid Sans","Trebuchet MS",Helvetica,Arial,sans-serif;
   font-size:11pt;
-  max-width:50em;
+  max-width:45em;
   margin:.8em auto;
   padding:1em;
 }
@@ -39,7 +39,6 @@ li.subway { background-image: url(subway.png); }
 li.tram, li.light_rail { background-image: url(tram.png); }
 li.ferry { background-image: url(ferry.png); }
 a { color:inherit; text-decoration:none; }
-.fixme { color:red; background-color:yellow; }
 .change, .view { color:lightgray; font-size:10pt; }
 .view { display:none; color:gray; }
 li:hover .view { display:inline; }
