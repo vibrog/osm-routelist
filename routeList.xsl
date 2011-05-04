@@ -156,17 +156,17 @@
     </span>
 
     <span class="view">
-      <xsl:text> — </xsl:text>
-      <a href="http://www.openstreetmap.org/?relation={@id}">
-        <xsl:text>kart</xsl:text>
-      </a>
-      <xsl:text>, </xsl:text>
+      <xsl:text> </xsl:text>
       <a href="http://127.0.0.1:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
-        <xsl:text>rediger</xsl:text>
+        <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
-      <xsl:text>, </xsl:text>
+      <xsl:text> </xsl:text>
+      <a href="http://www.openstreetmap.org/?relation={@id}">
+        <img src="map.png" alt="kart" title="Se på kart"/>
+      </a>
+      <xsl:text> </xsl:text>
       <a href="http://ra.osmsurround.org/downloadServlet/gpx/{@id}">
-        <xsl:text>gpx</xsl:text>
+        <img src="gpx.png" alt="gpx" title="Last ned GPS spor"/>
       </a>
     </span>
 
