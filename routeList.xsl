@@ -7,7 +7,7 @@
 <xsl:template match="osm">
   <html>
     <head>
-      <title>Ruter i Norge</title>
+      <title>Ruter på OpenStreetMap i Norge</title>
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
       <link rel="stylesheet" type="text/css" href="style.css"/>
       <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
@@ -77,8 +77,8 @@ function remoteControl(osmId){
     <body>
       <h1 id="header">
         <a href="http://wiki.openstreetmap.org/wiki/Route">Ruter</a>
-        <xsl:text> i </xsl:text>
-        <a href="http://www.openstreetmap.no/">Norge</a>
+        <xsl:text> på </xsl:text>
+        <a href="http://www.openstreetmap.no/">OpenStreetMap i Norge</a>
       </h1>
       <ul id="list">
         <xsl:apply-templates select="relation">
@@ -89,7 +89,7 @@ function remoteControl(osmId){
         </xsl:apply-templates>
       </ul>
       <p id="response"></p>
-      <p class="change">
+      <address>
         <xsl:text>Oppdatert </xsl:text>
         <xsl:value-of select="$updated"/>
         <xsl:text> fra </xsl:text>
@@ -97,7 +97,12 @@ function remoteControl(osmId){
         <xsl:text> med </xsl:text>
         <a href="https://github.com/vibrog/osm-routelist"
            >kode publisert på GitHub</a>
-      </p>
+        <br/>
+        <xsl:text>Data: © </xsl:text>
+        <a href="http://www.openstreetmap.org/">OpenStreetMap</a>
+        <xsl:text> and contributors, </xsl:text>
+        <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
+      </address>
     </body>
   </html>
 </xsl:template>
