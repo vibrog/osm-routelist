@@ -179,7 +179,7 @@ function remoteControl(osmId){
       </a>
       <xsl:text> </xsl:text>
       <a href="http://ra.osmsurround.org/downloadServlet/gpx/{@id}">
-        <img src="gpx.png" alt="gpx" title="Last ned GPS spor"/>
+        <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
       <a href="javascript:remoteControl('{@id}')">
