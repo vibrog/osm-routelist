@@ -53,6 +53,24 @@
     listFilter($("#header"), $("#list"));
   });
 }(jQuery));
+
+function remoteControl(osmId){
+  var url="http://localhost:8111/import?url="+
+    "http://api.openstreetmap.org/api/0.6/relation/"+osmId+"/full"
+  var msg;
+  try {
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET",url,false);
+    xmlhttp.send(null);
+    msg=xmlhttp.responseText;
+  }
+  catch(err) {
+    msg="Error: No editor response.";
+  }
+  document.getElementById('response').innerHTML=msg;
+  document.getElementById('response').style.display='block';
+  setTimeout("document.getElementById('response').style.display='none';",2500);
+}
 ]]></xsl:text>
       </script>
     </head>
@@ -70,17 +88,16 @@
           <xsl:sort select="tag[@k='name']/@v"/>
         </xsl:apply-templates>
       </ul>
-      <xsl:if test="$updated">
-        <p class="change">
-          <xsl:text>Oppdatert </xsl:text>
-          <xsl:value-of select="$updated"/>
-          <xsl:text> fra </xsl:text>
-          <a href="http://download.geofabrik.de/osm/europe/">norway.osm</a>
-          <xsl:text> med </xsl:text>
-          <a href="https://github.com/vibrog/osm-routelist"
-             >kode publisert på GitHub</a>
-        </p>
-      </xsl:if>
+      <p id="response"></p>
+      <p class="change">
+        <xsl:text>Oppdatert </xsl:text>
+        <xsl:value-of select="$updated"/>
+        <xsl:text> fra </xsl:text>
+        <a href="http://download.geofabrik.de/osm/europe/">norway.osm</a>
+        <xsl:text> med </xsl:text>
+        <a href="https://github.com/vibrog/osm-routelist"
+           >kode publisert på GitHub</a>
+      </p>
     </body>
   </html>
 </xsl:template>
@@ -165,7 +182,7 @@
         <img src="gpx.png" alt="gpx" title="Last ned GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
-      <a href="http://127.0.0.1:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
+      <a href="javascript:remoteControl('{@id}')">
         <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
     </span>
