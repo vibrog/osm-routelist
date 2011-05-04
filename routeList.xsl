@@ -82,12 +82,12 @@
         <br/>
         <xsl:text>Data: © </xsl:text>
         <a href="http://www.openstreetmap.org/">OpenStreetMap</a>
-        <xsl:text> and contributors, </xsl:text>
+        <xsl:text> og bidragsytere, </xsl:text>
         <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
       </address>
       <script>
         <xsl:text><![CDATA[
-$("a.rc").click(function(event){
+$('a[href*="localhost"]').click(function(event){
   event.preventDefault();
   var url=$(this).attr("href");
   var msg;
@@ -188,7 +188,7 @@ $("a.rc").click(function(event){
         <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
-      <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full" class="rc">
+      <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
         <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
     </span>
