@@ -10,7 +10,7 @@
       <title>Ruter på OpenStreetMap i Norge</title>
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
       <link rel="stylesheet" type="text/css" href="style.css"/>
-      <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js">
+      <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js">
         <xsl:text> </xsl:text>
       </script>
       <script type="text/javascript">
@@ -53,24 +53,6 @@
     listFilter($("#header"), $("#list"));
   });
 }(jQuery));
-
-function remoteControl(osmId){
-  var url="http://localhost:8111/import?url="+
-    "http://api.openstreetmap.org/api/0.6/relation/"+osmId+"/full"
-  var msg;
-  try {
-    var xmlhttp=new XMLHttpRequest();
-    xmlhttp.open("GET",url,false);
-    xmlhttp.send(null);
-    msg=xmlhttp.responseText;
-  }
-  catch(err) {
-    msg="Error: No editor response.";
-  }
-  document.getElementById('response').innerHTML=msg;
-  document.getElementById('response').style.display='block';
-  setTimeout("document.getElementById('response').style.display='none';",2500);
-}
 ]]></xsl:text>
       </script>
     </head>
@@ -103,6 +85,25 @@ function remoteControl(osmId){
         <xsl:text> and contributors, </xsl:text>
         <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
       </address>
+      <script>
+        <xsl:text><![CDATA[
+$("a.rc").click(function(event){
+  event.preventDefault();
+  var url=$(this).attr("href");
+  var msg;
+  try {
+    var xmlhttp=new XMLHttpRequest();
+    xmlhttp.open("GET",url,false);
+    xmlhttp.send(null);
+    msg=xmlhttp.responseText;
+  }
+  catch(err) {
+    msg="Feil: Editoren svarte ikke.";
+  }
+  $("#response").text(msg);
+  $("#response").fadeIn(500).delay(2000).fadeOut(500);
+});
+]]></xsl:text></script>
     </body>
   </html>
 </xsl:template>
@@ -187,7 +188,7 @@ function remoteControl(osmId){
         <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
-      <a href="javascript:remoteControl('{@id}')">
+      <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full" class="rc">
         <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
     </span>
