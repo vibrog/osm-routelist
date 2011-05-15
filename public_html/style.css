@@ -1,7 +1,7 @@
 body {
   font-family:"Droid Sans","Trebuchet MS",Helvetica,Arial,sans-serif;
   font-size:11pt;
-  max-width:40em;
+  width:40em;
   margin:.8em auto;
   padding:1em;
 }
@@ -47,10 +47,9 @@ p#response {
   background-color:#fc6;
   position:fixed;
   top:0;
-  left:50%;
-  margin:0;
-  width:40em;
-  margin-left:-20em;
+  float:center;
+  margin:0 auto;
+  width:38em;
   padding:2px 1em;
   display:none;
 }
