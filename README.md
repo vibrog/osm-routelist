@@ -5,6 +5,10 @@ Script and XSLT style sheet used to produce a list of
 [relation routes](http://wiki.openstreetmap.org/wiki/Route)
 found on OpenStreetMap (OSM) in Norway.
 
+Microformatting indicates OSM keys:
+[ref] name, "loc_name", rp:(from-)(via-)to, #ref, nb:note, id:osm-id, /network
+
+
 ### Instructions
 
 Download OSM data, e.g. nightly extract from
