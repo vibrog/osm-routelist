@@ -116,7 +116,7 @@ $('a[href*="localhost"]').click(function(event){
                     and (
                       tag[@k='name']
                       or tag[@k='loc_name']
-                      or ( tag[@k='from'] and tag[@k='to'] )
+                      or tag[@k='to']
                     )
                     and (
                       tag[@k='route']/@v='bus' or
@@ -138,10 +138,12 @@ $('a[href*="localhost"]').click(function(event){
           <xsl:value-of select="tag[@k='loc_name']/@v"/>
           <xsl:text>"</xsl:text>
         </xsl:when>
-        <xsl:when test="tag[@k='from'] and tag[@k='to']">
+        <xsl:when test="tag[@k='to']">
           <xsl:text>rp:</xsl:text>
-          <xsl:value-of select="tag[@k='from']/@v"/>
-          <xsl:text>–</xsl:text>
+          <xsl:if test="tag[@k='from']">
+            <xsl:value-of select="tag[@k='from']/@v"/>
+            <xsl:text>–</xsl:text>
+          </xsl:if>
           <xsl:if test="tag[@k='via']">
             <xsl:value-of select="tag[@k='via']/@v"/>
             <xsl:text>–</xsl:text>
