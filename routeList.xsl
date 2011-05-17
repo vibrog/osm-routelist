@@ -112,20 +112,41 @@ $('a[href*="localhost"]').click(function(event){
   <li class="{tag[@k='route']/@v}">
     <a href="http://www.openstreetmap.org/browse/relation/{@id}"
        title="id:{@id}">
+      <xsl:if test="tag[@k='ref']
+                    and (
+                      tag[@k='name']
+                      or tag[@k='loc_name']
+                      or ( tag[@k='from'] and tag[@k='to'] )
+                    )
+                    and (
+                      tag[@k='route']/@v='bus' or
+                      tag[@k='route']/@v='tram' or
+                      tag[@k='route']/@v='subway' or
+                      tag[@k='route']/@v='train' or
+                      tag[@k='route']/@v='ferry'
+                    )">
+        <xsl:text>[</xsl:text>
+        <xsl:value-of select="tag[@k='ref']/@v"/>
+        <xsl:text>] </xsl:text>
+      </xsl:if>
       <xsl:choose>
         <xsl:when test="tag[@k='name']">
-          <xsl:if test="tag[@k='ref'] and (
-                          tag[@k='route']/@v='bus' or
-                          tag[@k='route']/@v='ferry' or
-                          tag[@k='route']/@v='tram' or
-                          tag[@k='route']/@v='subway' or
-                          tag[@k='route']/@v='train'
-                        )">
-            <xsl:text>[</xsl:text>
-            <xsl:value-of select="tag[@k='ref']/@v"/>
-            <xsl:text>] </xsl:text>
-          </xsl:if>
           <xsl:value-of select="tag[@k='name']/@v"/>
+        </xsl:when>
+        <xsl:when test="tag[@k='loc_name']">
+          <xsl:text>"</xsl:text>
+          <xsl:value-of select="tag[@k='loc_name']/@v"/>
+          <xsl:text>"</xsl:text>
+        </xsl:when>
+        <xsl:when test="tag[@k='from'] and tag[@k='to']">
+          <xsl:text>rp:</xsl:text>
+          <xsl:value-of select="tag[@k='from']/@v"/>
+          <xsl:text>–</xsl:text>
+          <xsl:if test="tag[@k='via']">
+            <xsl:value-of select="tag[@k='via']/@v"/>
+            <xsl:text>–</xsl:text>
+          </xsl:if>
+          <xsl:value-of select="tag[@k='to']/@v"/>
         </xsl:when>
         <xsl:when test="tag[@k='ref']">
           <xsl:text>#</xsl:text>
@@ -147,12 +168,12 @@ $('a[href*="localhost"]').click(function(event){
       <a href="http://taginfo.openstreetmap.de/tags/route={tag[@k='route']/@v}">
         <xsl:value-of select="tag[@k='route']/@v"/>
       </a>
-      <xsl:if test="tag[@k='network']">
-        <xsl:text> /</xsl:text>
-        <a href="http://taginfo.openstreetmap.de/tags/network={tag[@k='network']/@v}">
-          <xsl:value-of select="tag[@k='network']/@v"/>
-        </a>
-      </xsl:if>
+    </xsl:if>
+    <xsl:if test="tag[@k='network']">
+      <xsl:text> /</xsl:text>
+      <a href="http://taginfo.openstreetmap.de/tags/network={tag[@k='network']/@v}">
+        <xsl:value-of select="tag[@k='network']/@v"/>
+      </a>
     </xsl:if>
 
     <xsl:if test="not(tag[@k='route']) or tag[@k='fixme']">
