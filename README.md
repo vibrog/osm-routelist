@@ -6,7 +6,7 @@ Script and XSLT style sheet used to produce a list of
 found on OpenStreetMap (OSM) in Norway.
 
 Microformatting indicates OSM keys:
-[ref] name, "loc_name", rp:(from-)(via-)to, #ref, nb:note, id:osm-id, /network
+[ref] name, "loc_name", rt:(from-)(via-)to, #ref, nb:note, id:osm-id, /network
 
 
 ### Instructions

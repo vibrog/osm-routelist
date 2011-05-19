@@ -139,7 +139,7 @@ $('a[href*="localhost"]').click(function(event){
           <xsl:text>"</xsl:text>
         </xsl:when>
         <xsl:when test="tag[@k='to']">
-          <xsl:text>rp:</xsl:text>
+          <xsl:text>rt:</xsl:text>
           <xsl:if test="tag[@k='from']">
             <xsl:value-of select="tag[@k='from']/@v"/>
             <xsl:text>–</xsl:text>
