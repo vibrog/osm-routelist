@@ -46,6 +46,7 @@ Symbols by
 [Trafikanten](http://trafikanten.no/),
 [Statens Kartverk](http://www.statkart.no/filestore/Standardisering/docs/symbol.pdf),
 [Vegvesenet](http://www.vegvesen.no/Trafikkinformasjon/Lover+og+regler/Trafikkskilt),
+[Nicolas Mollet](http://mapicons.nicolasmollet.com/category/markers/),
 [Geotag Icon Project](http://www.geotagicons.com/),
 [Robert Szczepanek](http://www.mricons.com/show/iconset:gis-icons),
 [Yusuke Kamiyamane](http://findicons.com/icon/116512/050).
