@@ -7,7 +7,10 @@
 <xsl:template match="osm">
   <html>
     <head>
-      <title>Ruter på OpenStreetMap i Norge</title>
+      <title>
+        <xsl:value-of select="relation[position()=1]/tag[@k='type']/@v"/>
+        <xsl:text> på OSM i Norge</xsl:text>
+      </title>
       <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;"/>
       <link rel="stylesheet" type="text/css" href="style.css"/>
       <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js">
@@ -58,7 +61,9 @@
     </head>
     <body>
       <h1 id="header">
-        <a href="http://wiki.openstreetmap.org/wiki/Route">Ruter</a>
+        <a href="http://wiki.openstreetmap.org/wiki/Relation">Relasjoner</a>
+        <xsl:text> med type=</xsl:text>
+        <xsl:value-of select="relation[position()=1]/tag[@k='type']/@v"/>
         <xsl:text> på </xsl:text>
         <a href="http://www.openstreetmap.no/">OpenStreetMap i Norge</a>
       </h1>
@@ -178,14 +183,17 @@ $('a[href*="localhost"]').click(function(event){
       </a>
     </xsl:if>
 
-    <xsl:if test="not(tag[@k='route']) or tag[@k='fixme']">
+    <xsl:if test="(tag[@v='route'] and not(tag[@k='route']))
+                  or tag[@k='fixme']">
       <xsl:variable name="tooltip">
         <xsl:choose>
           <xsl:when test="tag[@k='fixme']">
             <xsl:value-of select="tag[@k='fixme']/@v"/>
           </xsl:when>
-          <xsl:when test="not(tag[@k='route'])">
-            <xsl:text>Mangler route-verdi</xsl:text>
+          <xsl:when test="not(tag[@k=tag[@k='type']/@v])">
+            <xsl:text>Mangler </xsl:text>
+            <xsl:value-of select="tag[@k='type']/@v"/>
+            <xsl:text>-verdi</xsl:text>
           </xsl:when>
         </xsl:choose>
       </xsl:variable>
