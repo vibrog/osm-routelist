@@ -71,6 +71,7 @@
         <xsl:apply-templates select="relation">
           <xsl:sort select="tag[@k='route']/@v"/>
           <xsl:sort select="tag[@k='network']/@v"/>
+          <xsl:sort select="tag[@k='operator']/@v"/>
           <xsl:sort select="tag[@k='ref']/@v" data-type="number"/>
           <xsl:sort select="tag[@k='name']/@v"/>
         </xsl:apply-templates>
@@ -168,6 +169,15 @@ $('a[href*="localhost"]').click(function(event){
           <xsl:value-of select="@id"/>
         </xsl:otherwise>
       </xsl:choose>
+      <xsl:if test="tag[@k='operator'] and (
+                    tag[@k='route']/@v='bus' or
+                    tag[@k='route']/@v='tram' or
+                    tag[@k='route']/@v='subway' or
+                    tag[@k='route']/@v='train' or
+                    tag[@k='route']/@v='ferry' )">
+        <xsl:text> *</xsl:text>
+        <xsl:value-of select="tag[@k='operator']/@v"/>
+    </xsl:if>
     </a>
 
     <xsl:if test="tag[@k='route']">
