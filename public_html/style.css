@@ -31,11 +31,13 @@ li.mtb { background-image: url(mtb.png); }
 li.hiking { background-image: url(hiking.png); }
 li.foot { background-image: url(foot.png); }
 li.running { background-image: url(running.png); }
+li.fitness_trail { background-image: url(fitness_trail.png); }
 li.ski { background-image: url(ski.png); }
 li.horse { background-image: url(horse.png); }
 li.sled { background-image: url(sledge.png); }
 li.wheelchair { background-image: url(wheelchair.png); }
 li.bus { background-image: url(bus.png); }
+li.trolleybus { background-image: url(trolleybus.png); }
 li.train, li.railway { background-image: url(train.png); }
 li.subway { background-image: url(subway.png); }
 li.tram, li.light_rail { background-image: url(tram.png); }
