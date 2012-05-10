@@ -86,10 +86,10 @@
         <a href="https://github.com/vibrog/osm-routelist"
            >kode publisert på GitHub</a>
         <br/>
-        <xsl:text>Data: © </xsl:text>
+        <xsl:text>Kartdata © </xsl:text>
         <a href="http://www.openstreetmap.org/">OpenStreetMap</a>
-        <xsl:text> og bidragsytere, </xsl:text>
-        <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
+        <xsl:text>-bidragsytere, </xsl:text>
+        <a href="http://www.openstreetmap.org/copyright">CC-BY-SA</a>
       </address>
       <script>
         <xsl:text><![CDATA[
@@ -223,10 +223,6 @@ $('a[href*="localhost"]').click(function(event){
       <xsl:text> </xsl:text>
       <a href="http://www.openstreetmap.org/?relation={@id}">
         <img src="map.png" alt="kart" title="Se på kart"/>
-      </a>
-      <xsl:text> </xsl:text>
-      <a href="http://ra.osmsurround.org/downloadServlet/gpx/{@id}">
-        <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
       <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
