@@ -81,15 +81,14 @@
         <xsl:text>Oppdatert </xsl:text>
         <xsl:value-of select="$updated"/>
         <xsl:text> fra </xsl:text>
-        <a href="http://download.geofabrik.de/osm/europe/">norway.osm</a>
+        <a href="http://download.geofabrik.de/europe/norway.html">Geofabrik OpenStreetMap uttrekk</a>
         <xsl:text> med </xsl:text>
         <a href="https://github.com/vibrog/osm-routelist"
            >kode publisert på GitHub</a>
         <br/>
         <xsl:text>Kartdata © </xsl:text>
-        <a href="http://www.openstreetmap.org/">OpenStreetMap</a>
-        <xsl:text>-bidragsytere, </xsl:text>
-        <a href="http://www.openstreetmap.org/copyright">CC-BY-SA</a>
+        <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>
+        <xsl:text>-bidragsytere</xsl:text>
       </address>
       <script>
         <xsl:text><![CDATA[
