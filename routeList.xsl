@@ -223,6 +223,10 @@ $('a[href*="localhost"]').click(function(event){
         <img src="map.png" alt="kart" title="Se på kart"/>
       </a>
       <xsl:text> </xsl:text>
+      <a href="http://osmrm.openstreetmap.de/gpx.jsp?relation={@id}">
+        <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
+      </a>
+      <xsl:text> </xsl:text>
       <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
         <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
