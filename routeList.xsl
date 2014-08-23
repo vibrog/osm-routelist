@@ -87,8 +87,7 @@
            >kode publisert på GitHub</a>
         <br/>
         <xsl:text>Kartdata © </xsl:text>
-        <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>
-        <xsl:text>-bidragsytere</xsl:text>
+        <a href="https://osm.org/copyright">OpenStreetMap bidragsytere</a>
       </address>
       <script>
         <xsl:text><![CDATA[
