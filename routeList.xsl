@@ -220,10 +220,6 @@ $('a[href*="localhost"]').click(function(event){
 
     <span class="view">
       <xsl:text> </xsl:text>
-      <a href="https://www.openstreetmap.org/relation/{@id}">
-        <img src="map.png" alt="kart" title="Se på kart"/>
-      </a>
-      <xsl:text> </xsl:text>
       <a href="http://osmrm.openstreetmap.de/gpx.jsp?relation={@id}">
         <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
