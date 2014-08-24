@@ -116,7 +116,7 @@ $('a[href*="localhost"]').click(function(event){
 <xsl:template match="relation">
   <li class="{tag[@k='route']/@v}">
     <a href="https://www.openstreetmap.org/relation/{@id}"
-       title="id:{@id}">
+       title="Beskrivelse og kart for {@id}">
       <xsl:if test="tag[@k='ref']
                     and (
                       tag[@k='name']
@@ -213,7 +213,7 @@ $('a[href*="localhost"]').click(function(event){
     <span class="change">
       <xsl:text>, </xsl:text>
       <a href="https://www.openstreetmap.org/changeset/{@changeset}"
-         title="{@changeset} {@user}">
+         title="Endringssett {@changeset} av {@user}">
         <xsl:value-of select="substring-before(@timestamp,'T')"/>
       </a>
     </span>
