@@ -61,11 +61,12 @@
     </head>
     <body>
       <h1 id="header">
-        <a href="http://wiki.openstreetmap.org/wiki/Relation">Relasjoner</a>
+        <a href="https://wiki.openstreetmap.org/wiki/Relation">Relasjoner</a>
         <xsl:text> med type=</xsl:text>
         <xsl:value-of select="relation[position()=1]/tag[@k='type']/@v"/>
         <xsl:text> på </xsl:text>
-        <a href="http://www.openstreetmap.no/">OpenStreetMap i Norge</a>
+        <a href="https://www.openstreetmap.org/">OpenStreetMap</a>
+        <xsl:text> i Norge</xsl:text>
       </h1>
       <ul id="list">
         <xsl:apply-templates select="relation">
@@ -87,7 +88,7 @@
            >kode publisert på GitHub</a>
         <br/>
         <xsl:text>Kartdata © </xsl:text>
-        <a href="https://osm.org/copyright">OpenStreetMap bidragsytere</a>
+        <a href="https://www.openstreetmap.org/copyright">OpenStreetMap bidragsytere</a>
       </address>
       <script>
         <xsl:text><![CDATA[
@@ -114,7 +115,7 @@ $('a[href*="localhost"]').click(function(event){
 
 <xsl:template match="relation">
   <li class="{tag[@k='route']/@v}">
-    <a href="http://www.openstreetmap.org/browse/relation/{@id}"
+    <a href="https://www.openstreetmap.org/relation/{@id}"
        title="id:{@id}">
       <xsl:if test="tag[@k='ref']
                     and (
@@ -180,13 +181,13 @@ $('a[href*="localhost"]').click(function(event){
 
     <xsl:if test="tag[@k='route']">
       <xsl:text>: </xsl:text>
-      <a href="http://taginfo.openstreetmap.de/tags/route={tag[@k='route']/@v}">
+      <a href="https://taginfo.openstreetmap.org/tags/route={tag[@k='route']/@v}">
         <xsl:value-of select="tag[@k='route']/@v"/>
       </a>
     </xsl:if>
     <xsl:if test="tag[@k='network']">
       <xsl:text> /</xsl:text>
-      <a href="http://taginfo.openstreetmap.de/tags/network={tag[@k='network']/@v}">
+      <a href="https://taginfo.openstreetmap.org/tags/network={tag[@k='network']/@v}">
         <xsl:value-of select="tag[@k='network']/@v"/>
       </a>
     </xsl:if>
@@ -211,7 +212,7 @@ $('a[href*="localhost"]').click(function(event){
 
     <span class="change">
       <xsl:text>, </xsl:text>
-      <a href="http://www.openstreetmap.org/browse/changeset/{@changeset}"
+      <a href="https://www.openstreetmap.org/changeset/{@changeset}"
          title="{@changeset} {@user}">
         <xsl:value-of select="substring-before(@timestamp,'T')"/>
       </a>
@@ -219,7 +220,7 @@ $('a[href*="localhost"]').click(function(event){
 
     <span class="view">
       <xsl:text> </xsl:text>
-      <a href="http://www.openstreetmap.org/?relation={@id}">
+      <a href="https://www.openstreetmap.org/relation/{@id}">
         <img src="map.png" alt="kart" title="Se på kart"/>
       </a>
       <xsl:text> </xsl:text>
@@ -227,7 +228,7 @@ $('a[href*="localhost"]').click(function(event){
         <img src="export.png" alt="gpx" title="Eksporter GPS spor"/>
       </a>
       <xsl:text> </xsl:text>
-      <a href="http://localhost:8111/import?url=http://api.openstreetmap.org/api/0.6/relation/{@id}/full">
+      <a href="http://localhost:8111/import?url=https://api.openstreetmap.org/api/0.6/relation/{@id}/full">
         <img src="edit.png" alt="rediger" title="Rediger"/>
       </a>
     </span>
